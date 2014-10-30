@@ -1,0 +1,22 @@
+html{
+    height:100%;
+	font-family:monospace;
+}
+
+body{
+    height:98%;
+    background:#ddd;
+	color:#000;
+    margin-left:auto;
+    margin-right:auto;
+}
+header{
+	height:2em;
+}
+header a{
+	color:#fff;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+footer{
+	color:#777;
+}

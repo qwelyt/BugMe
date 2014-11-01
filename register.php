@@ -1,6 +1,6 @@
 <div id='register'>
 	<b>Register</b>
-	<form action='index.php' method='post' enctype='multipart/form-data'>
+	<form action='index.php' method='post'>
 		<input type='text' name='realname' placeholder='Real name' required/><br>
 		<input type='text' name='username' placeholder='Username (3 chars)' pattern='(\w|\W){3,}' required/><br>
 		<input type='email' name='email' placeholder='Email' required /><br>

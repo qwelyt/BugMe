@@ -5,6 +5,7 @@ html{
 
 body{
     height:98%;
+	width:80%;
     background:#ddd;
 	color:#000;
     margin-left:auto;
@@ -19,4 +20,24 @@ header a{
 }
 footer{
 	color:#777;
+}
+
+#whileIn{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#whileIn-menu{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	padding-bottom:3em;
+}
+
+.whileIn-nav{
+	/*width:90%;*/
+	margin-left:auto;
+	margin-right:auto;
+	display:inline;
 }

@@ -1,7 +1,18 @@
 	<div id='add-bug'>
 		<form action='index.php' method='post'>
 			<select name='addBug-Part' required>
-				<option value='-1'>What part is the bug in?</option>
+				<?php
+					$query = $mysqli->prepare("SELECT * FROM parts");
+					$query->execute();
+					$query = $query->get_result();
+					if($query->num_rows > 0){
+						while($row = $query->fetch_array(MYSQLI_ASSOC)){
+							$id=$row['id'];
+							$name=$row['name'];
+							echo "<option value='$id'>$name</option>";
+						}
+					}
+				?>
 			</select>
 			<br>
 			<input type='text' name='addBug-Name' placeholder='Bug name...' required><br>

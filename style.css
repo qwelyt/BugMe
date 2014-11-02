@@ -41,3 +41,33 @@ footer{
 	margin-right:auto;
 	display:inline;
 }
+
+.bug{
+	margin:5px;
+	padding:1em;
+	/*background:#ccc;*/
+	border-style:solid;
+	border-width:2px;
+	border-color:#ccc;
+	border-radius:7px;
+}
+
+.bug-title{
+	font-size:20px;
+	font-weight:bold;
+}
+
+.bug-status-holder{
+	float:right;
+}
+
+.bug-submitter-name{
+	font-style:italic;
+}
+
+.bug-desc{
+	margin-top:1em;
+	background:#eee;
+	padding:5px;
+	border-radius:7px;
+}

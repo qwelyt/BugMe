@@ -8,7 +8,7 @@
 		</span>
  </div>
 <?php
-	$query = $mysqli->prepare("SELECT * FROM bugs");
+	$query = $mysqli->prepare("SELECT * FROM bugs ORDER BY id DESC");
 	$query->execute();
 	$query = $query->get_result();
 	echo $query->num_rows." bugs found";
@@ -16,7 +16,8 @@
 		while($row = $query->fetch_array(MYSQLI_ASSOC)){
 			$bugID		= $row['id'];
 			$bugTitle	= $row['name'];
-			$bugDesc	= $row['desc'];
+			$bugDesc	= str_replace('\r\n','<br>',$row['desc']);
+			//$bugDesc	= html_entity_decode($row['desc']);
 			$reporter	= $row['reporter'];
 			$bugStats	= $row['status'];
 			$bugAdded	= $row['date'];
@@ -42,14 +43,21 @@
 			}
 
 			echo "<div class='bug'>";
-			echo "	<span class='bug-title'>$bugTitle</span>";
-			echo "	<span class='bug-id'>$bugID</span>";
-			echo "	<span class='bug-part'>$bugPart</span>";
-			echo "	<span class='bug-submitter'>$bugSub</span>";
-			echo "	<span class='bug-status'>$bugStats</span>";
-			echo "	<span class='bug-added'>$bugAdded</span>";
-			echo "	<span class='bug-statChange'>$bugStatChange</span>";
-			echo "	<div class='bug-desc'>$bugDesc</div>";
+			echo "	<div class='bug-head'>";
+			echo "		<span class='bug-id'>$bugID</span>";
+			echo "		<span class='bug-part'>($bugPart)</span>";
+			echo "		<span class='bug-status-holder'>";
+			echo "			<span class='bug-status'>Status: $bugStats</span><br>";
+			echo "			<span class='bug-statChange'>Change: $bugStatChange</span>";
+			echo "		</span><!-- bug-status-holder -->";
+			echo "		<br>";
+			echo "		<span class='bug-title'>$bugTitle</span>";
+			echo "		<br>";
+			echo "		<span class='bug-submitter'>Reported by:<span class='bug-submitter-name'> $bugSub</span></span>";
+			echo "		<span class='bug-added'>On: $bugAdded</span>";
+			echo "		<br>";
+			echo "	</div><!-- bug-head -->";
+			echo "	<div class='bug-desc'>$bugDesc</div><!-- bug-desc -->";
 			echo "</div><!-- bug -->";
 		}
 	}

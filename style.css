@@ -55,6 +55,7 @@ footer{
 .bug-title{
 	font-size:20px;
 	font-weight:bold;
+	color:#f00;
 }
 
 .bug-status-holder{

@@ -42,6 +42,8 @@ footer{
 	display:inline;
 }
 
+/* Should take a look at issue-trackers like github.
+ * They look sweet. */
 .bug{
 	margin:5px;
 	padding:1em;
@@ -55,7 +57,6 @@ footer{
 .bug-title{
 	font-size:20px;
 	font-weight:bold;
-	color:#f00;
 }
 
 .bug-status-holder{

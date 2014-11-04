@@ -42,6 +42,11 @@
 				$bugPart = $u->fetch_array(MYSQLI_NUM)[0];
 			}
 
+			// Should probably not display description on this page.
+			// List the bug-header, then let the user click on the bug, put the id into
+			// a GET variable, and the display it on it's own page. That way 
+			// there won't be an as-long page sinc the desc is what takes up the most
+			// space. Making it more concise and easier to read.
 			echo "<div class='bug'>";
 			echo "	<div class='bug-head'>";
 			echo "		<span class='bug-id'>$bugID</span>";

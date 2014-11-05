@@ -7,6 +7,7 @@
 			</select>
 		</span>
  </div>
+ <div id='bug-results'>
 <?php
 	$query = $mysqli->prepare("SELECT * FROM bugs ORDER BY id DESC");
 	$query->execute();
@@ -19,12 +20,17 @@
 			$bugDesc	= str_replace('\r\n','<br>',$row['desc']);
 			//$bugDesc	= html_entity_decode($row['desc']);
 			$reporter	= $row['reporter'];
-			$bugStats	= $row['status'];
+			$bugOpen	= $row['open'];
 			$bugAdded	= $row['date'];
 			$part		= $row['part'];
 			$bugStatChange = $row['statusChange'];
 			$bugSub='NaN';
 			$bugPart='NaN';
+			$bugStats='Closed';
+
+			if($bugOpen == 1){
+				$bugStats='Open';
+			}
 
 			$q = $mysqli->prepare("SELECT username FROM users WHERE id=?");
 			$q->bind_param('i',$reporter);
@@ -42,6 +48,7 @@
 				$bugPart = $u->fetch_array(MYSQLI_NUM)[0];
 			}
 
+
 			// Should probably not display description on this page.
 			// List the bug-header, then let the user click on the bug, put the id into
 			// a GET variable, and the display it on it's own page. That way 
@@ -49,21 +56,24 @@
 			// space. Making it more concise and easier to read.
 			echo "<div class='bug'>";
 			echo "	<div class='bug-head'>";
-			echo "		<span class='bug-id'>$bugID</span>";
+			echo "		<span class='bug-status-$bugStats'></span>";
+			echo "		<span class='bug-id'><a href='?bug=$bugID'>#$bugID</a></span>";
 			echo "		<span class='bug-part'>($bugPart)</span>";
-			echo "		<span class='bug-status-holder'>";
-			echo "			<span class='bug-status'>Status: $bugStats</span><br>";
-			echo "			<span class='bug-statChange'>Change: $bugStatChange</span>";
-			echo "		</span><!-- bug-status-holder -->";
+			//echo "		<span class='bug-status-holder'>";
+			echo "			<span class='bug-status'>$bugStats</span>";
+			//echo "		</span><!-- bug-status-holder -->";
 			echo "		<br>";
-			echo "		<span class='bug-title'>$bugTitle</span>";
+			echo "		<span class='bug-title'><a href=?bug=$bugID'>$bugTitle</a></span>";
 			echo "		<br>";
 			echo "		<span class='bug-submitter'>Reported by:<span class='bug-submitter-name'> $bugSub</span></span>";
-			echo "		<span class='bug-added'>On: $bugAdded</span>";
+			//echo "		<span class='bug-added'>On: $bugAdded</span><br>";
+			echo "		<span class='bug-statChange'>Updated: $bugStatChange</span>";
 			echo "		<br>";
 			echo "	</div><!-- bug-head -->";
-			echo "	<div class='bug-desc'>$bugDesc</div><!-- bug-desc -->";
+			//echo "	<div class='bug-desc'>$bugDesc</div><!-- bug-desc -->";
 			echo "</div><!-- bug -->";
 		}
 	}
 ?>
+ </div><!-- bug-results -->
+ <span class='test'>A</span>

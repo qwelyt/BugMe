@@ -67,6 +67,9 @@ Hello thar <?php echo $_SESSION['usr']; ?>.
 		if(isset($_GET['reportBugs'])){
 			include 'addBug.php';
 		}
+		else if(isset($_GET['bug'])){
+			include 'viewBug.php';
+		}
 		else{
 			include 'searchBug.php';
 		}

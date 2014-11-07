@@ -76,4 +76,5 @@
 	}
 ?>
  </div><!-- bug-results -->
- <span class='test'>A</span>
+ <span class='test'></span>
+ <span class='test2'></span>

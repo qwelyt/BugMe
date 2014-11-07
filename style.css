@@ -105,29 +105,9 @@ footer{
 }
 
 /* Icons */
-.bug-status-Closed{
-	border-radius:20px;
-	border: 2px solid #6cc644;
-	background:transparent;
-	width:10px;
-	height:10px;
-	display:inline-block;
-	vertical-align:bottom;
-}
-
-.bug-status-Closed:after{
-	content:"!";
-	font-size:10px;
-	line-height:1;
-	vertical-align:top;
-	margin-left:2px;
-	color:#6cc644;
-	font-weight:bolder;
-}
-
 .bug-status-Open{
 	border-radius:20px;
-	border: 2px solid #bd2c00;
+	border: 2px solid #6cc644;
 	background:transparent;
 	width:10px;
 	height:10px;
@@ -141,11 +121,12 @@ footer{
 	line-height:1;
 	vertical-align:top;
 	margin-left:2px;
-	color:#bd2c00;
+	color:#6cc644;
 	font-weight:bolder;
 }
 
 /* Try to make a checkbox */
+/*
 .test{
 	display:inline-block;
 	width:15px;
@@ -165,5 +146,88 @@ footer{
 	-moz-transform:rotate(90deg);
 	transform:rotate(90deg);
 }
+.test:before{
+	border-radius:20px;
+	border: 2px solid #000;
+	background:transparent;
+	width:10px;
+	height:10px;
+}
+*/
+.test{
+	border:2px solid #bd2c00;
+	width:10px;
+	height:10px;
+	display:inline-block;
+	border-radius:4px;
+}
+.test:before{
+	content:"";
+	width:23px;
+	height:4px;
+	position:absolute;
+	background:#bd2c00;
+	transform:rotate(-45deg);
+	margin-left:-6px;
+	margin-top:3px;
+	border-radius:4px;
+}
+.bug-status-Closed{
+	border:2px solid #bd2c00;
+	width:10px;
+	height:10px;
+	display:inline-block;
+	border-radius:4px;
+}
+.bug-status-Closed:before{
+	content:"";
+	width:23px;
+	height:4px;
+	position:absolute;
+	background:#bd2c00;
+	transform:rotate(-45deg);
+	margin-left:-6px;
+	margin-top:3px;
+	border-radius:4px;
+}
 
+.test2{
+	/*
+	border-radius:20px;
+	border: 2px solid #bd2c00;
+	*/
+	border-right:1px solid transparent;
+	border-top:2px solid #bd2c00;
+	border-left:2px solid #bd2c00;
+	border-bottom:2px solid #bd2c00;
+	border-radius:20px;
+	background:transparent;
+	width:10px;
+	height:10px;
+	display:inline-block;
+	vertical-align:bottom;
+	transform:rotate(-25deg);
+}
 
+.test2:before{
+	content:"";
+	width:14px;
+	height:3px;
+	margin-top:3px;
+	margin-left:5px;
+	background:#bd2c00;
+	position:absolute;
+	-moz-transform:rotate(-20deg);
+	transform:rotate(-20deg);
+}
+.test2:after{
+	content:"";
+	width:6px;
+	height:3px;
+	margin-left:2px;
+	margin-top:4px;
+	background:#bd2c00;
+	position:absolute;
+	-moz-transform:rotate(90deg);
+	transform:rotate(90deg);
+}
